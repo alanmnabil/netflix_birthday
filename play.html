@@ -1,0 +1,230 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Play Movie - Netflix Clone</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+      }
+      .video-container {
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        height: 0;
+      }
+      .video-container video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
+      .movie-card {
+        transition: transform 0.3s ease;
+      }
+      .movie-card:hover {
+        transform: scale(1.1);
+      }
+    </style>
+  </head>
+  <body class="bg-black text-white">
+    <!-- Header -->
+    <header
+      class="flex justify-between items-center p-4 bg-black fixed w-full z-10"
+    >
+      <div class="flex items-center space-x-4">
+        <img
+          alt="Netflix logo in red and white"
+          class="h-8"
+          height="50"
+          src="img/pngwing.com.png"
+          width="100"
+        />
+        <nav class="hidden md:flex space-x-4">
+          <a class="hover:text-gray-400" href="index.html"> Home </a>
+          <a class="hover:text-gray-400" href="#"> TV Shows </a>
+          <a class="hover:text-gray-400" href="#"> Movies </a>
+          <a class="hover:text-gray-400" href="#"> New &amp; Popular </a>
+          <a class="hover:text-gray-400" href="#"> My List </a>
+        </nav>
+      </div>
+
+      <div class="flex items-center space-x-4">
+        <button class="md:hidden focus:outline-none" id="menu-button">
+          <i class="fas fa-bars text-white"> </i>
+        </button>
+        <i class="fas fa-search hover:text-gray-400"> </i>
+        <i class="fas fa-bell hover:text-gray-400"> </i>
+        <img
+          alt="User profile picture"
+          class="h-8 w-8 rounded-full"
+          height="30"
+          src="img/DSC06537.jpg"
+          width="30"
+        />
+      </div>
+    </header>
+    <!-- Mobile Menu -->
+    <div
+      class="hidden fixed inset-0 bg-black bg-opacity-90 z-20"
+      id="mobile-menu"
+    >
+      <div class="flex justify-end p-4">
+        <button class="focus:outline-none" id="close-menu-button">
+          <i class="fas fa-times text-white text-2xl"> </i>
+        </button>
+      </div>
+      <nav class="flex flex-col items-center space-y-4 mt-8">
+        <a class="hover:text-gray-400 text-xl" href="index.html"> Home </a>
+        <a class="hover:text-gray-400 text-xl" href="#"> TV Shows </a>
+        <a class="hover:text-gray-400 text-xl" href="#"> Movies </a>
+        <a class="hover:text-gray-400 text-xl" href="#"> New &amp; Popular </a>
+        <a class="hover:text-gray-400 text-xl" href="#"> My List </a>
+      </nav>
+    </div>
+    <!-- Main Content -->
+    <main class="pt-16">
+      <!-- Video Player Section -->
+      <section class="relative bg-black">
+        <div class="video-container">
+          <video class="w-full h-full object-cover" controls>
+            <source src="img/vid/1106(1).mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div
+          class="p-8 bg-gradient-to-t from-black via-transparent to-transparent w-full"
+        >
+          <h1 class="text-3xl font-bold">Maghfi's Birthday</h1>
+          <p class="mt-2">
+            Selamat ulang tahun sayang, semoga tahun-tahun kedepan kita bisa
+            terus bersama dan mencapai banyak mimpi-mimpi yang kita idamkan
+          </p>
+          <div class="mt-4">
+            <h3 class="text-2xl font-bold mb-2">Genres</h3>
+            <div class="flex flex-wrap space-x-2">
+              <span
+                class="bg-gray-700 bg-opacity-75 text-white px-3 py-1 rounded-full"
+              >
+                Drama
+              </span>
+              <span
+                class="bg-gray-700 bg-opacity-75 text-white px-3 py-1 rounded-full"
+              >
+                Comedy
+              </span>
+              <span
+                class="bg-gray-700 bg-opacity-75 text-white px-3 py-1 rounded-full"
+              >
+                Romance
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="p-8 space-y-8">
+        <!-- Row 2 -->
+        <div>
+          <h2 class="text-2xl font-bold mb-4">Recommended for You</h2>
+          <div
+            class="flex space-x-4 overflow-auto whitespace-nowrap w-full p-2 no-scrollbar"
+          >
+            <img
+              alt="Top pick movie 1"
+              class="w-48 h-72 object-cover movie-card flex-shrink-0"
+              height="300"
+              src="img/harpot-7-2-768x1152.jpg"
+              width="200"
+            />
+            <img
+              alt="Top pick movie 2"
+              class="w-48 h-72 object-cover movie-card flex-shrink-0"
+              height="300"
+              src="img/7118ecsxO3L._AC_SY879_.jpg"
+              width="200"
+            />
+            <img
+              alt="Top pick movie 3"
+              class="w-48 h-72 object-cover movie-card flex-shrink-0"
+              height="300"
+              src="img/e4cf270a5ece4d9d97cc6a2c3f649085.jpg"
+              width="200"
+            />
+            <img
+              alt="Top pick movie 3"
+              class="w-48 h-72 object-cover movie-card flex-shrink-0"
+              height="300"
+              src="img/700182.webp"
+              width="200"
+            />
+            <img
+              alt="Top pick movie 4"
+              class="w-48 h-72 object-cover movie-card flex-shrink-0"
+              height="300"
+              src="img/s-l960.webp"
+              width="200"
+            />
+            <img
+              alt="Top pick movie 4"
+              class="w-48 h-72 object-cover movie-card flex-shrink-0"
+              height="300"
+              src="img/6354d2a3540478668023df25-maze-runner-the-death-cure-movie-poster.jpg"
+              width="200"
+            />
+            <img
+              alt="Top pick movie 5"
+              class="w-48 h-72 object-cover movie-card flex-shrink-0"
+              height="300"
+              src="img/81EBp0vOZZL._AC_SY879_.jpg"
+              width="200"
+            />
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-black bg-opacity-75 p-8">
+      <div class="max-w-6xl">
+        <div class="flex justify-between items-center mb-8">
+          <div class="flex space-x-4">
+            <a class="text-white hover:text-gray-400" href="#"> Privacy </a>
+            <a class="text-white hover:text-gray-400" href="#"> Terms </a>
+            <a class="text-white hover:text-gray-400" href="#"> Contact Us </a>
+          </div>
+        </div>
+        <p class="text-gray-400">© 2023 Netflix. All rights reserved.</p>
+      </div>
+    </footer>
+    <script>
+      const menuButton = document.getElementById("menu-button");
+      const closeMenuButton = document.getElementById("close-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      menuButton.addEventListener("click", () => {
+        mobileMenu.classList.remove("hidden");
+      });
+
+      closeMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+      });
+    </script>
+  </body>
+</html>
